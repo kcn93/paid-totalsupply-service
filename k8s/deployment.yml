@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: paid-dapp-api
+  labels:
+    app: dapp-api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: dapp-api
+  strategy:
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        app: dapp-api
+    spec:
+      containers:
+        - image: gcr.io/vivid-plateau-278712/paid-dapp-api:develop-latest
+          name: dapp-api
+          ports:
+            - containerPort: 3000
+          env: 
+            - name: SENDGRID_API_KEY
+              valueFrom: 
+                secretKeyRef:
+                  name: paid-dapp-api-sendgrid
+                  key: api-key
