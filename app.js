@@ -16,8 +16,8 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(cors())
-app.use('/', indexRouter);
-app.use('/email', emailRouter);
+app.use('/', totalSupplyRouter);
+app.use('/email', totalCirculantRouter);
 app.use('/whisper', whisperRouter);
 
 // Configurar cabeceras y cors
