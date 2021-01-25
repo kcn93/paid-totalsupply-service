@@ -1,20 +1,17 @@
 {
-  "name": "paid-dapp-api",
-  "version": "0.0.0",
-  "private": true,
+  "name": "slots-faucet-function",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
   "scripts": {
-    "start": "node ./bin/www"
+    "deploy": "gcloud functions deploy token-v3-total-supply --env-vars-file .env --entry-point v3totalSupply --runtime nodejs8 --trigger-http",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "author": "",
+  "license": "ISC",
   "dependencies": {
-    "@sendgrid/mail": "^7.4.1",
-    "axios": "^0.21.1",
-    "cookie-parser": "~1.4.4",
-    "cors": "^2.8.5",
-    "debug": "~2.6.9",
-    "express": "~4.16.1",
-    "http-errors": "~1.6.3",
-    "jade": "~1.11.0",
-    "morgan": "~1.9.1",
-    "uuid": "^8.3.2"
+    "thorify": "1.1.0",
+    "web3": "1.0.0-beta.37",
+    "@decent-bet/contract-migration": "1.0.1"
   }
 }
