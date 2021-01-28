@@ -1,10 +1,12 @@
-var createError = require('http-errors');
-var express = require('express');
-var cors = require('cors')
-var path = require('path');
-var cookieParser = require('cookie-parser');
+const createError = require('http-errors');
+const express = require('express');
+const cors = require('cors')
+const path = require('path');
 
-var app = express();
+// Routes
+const totalSupplyRouter = require('./supply');
+
+const app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -12,13 +14,11 @@ app.set('view engine', 'jade');
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(cors())
 app.use('/', totalSupplyRouter);
-app.use('/email', totalCirculantRouter);
-app.use('/whisper', whisperRouter);
+
 
 // Configurar cabeceras y cors
 // app.use((req, res, next) => {
