@@ -19,7 +19,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(cors())
 app.use('/', indexRouter);
-app.use('/totalsupply', totalSupplyRouter);
+app.use('/supply', totalSupplyRouter);
 
 
 // Configurar cabeceras y cors
