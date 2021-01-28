@@ -8,9 +8,9 @@ import { ContractFactory } from '../utils/ContractFactory';
  */
 router.post('/totalsupply', function(req, res, next) {
     try {
-        
+
         const PAIDToken =  ContractFactory();
-        
+
         let totalSupply = await PAIDToken.methods
             .totalSupply()
             .call()
