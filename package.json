@@ -10,8 +10,10 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "thorify": "1.1.0",
-    "web3": "1.0.0-beta.37",
-    "@decent-bet/contract-migration": "1.0.1"
+    "cors": "^2.8.5",
+    "http-errors": "^1.8.0",
+    "jade": "^1.11.0",
+    "path": "^0.12.7",
+    "web3": "^1.3.3"
   }
 }

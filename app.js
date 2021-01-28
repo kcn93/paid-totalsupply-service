@@ -4,7 +4,8 @@ const cors = require('cors')
 const path = require('path');
 
 // Routes
-const totalSupplyRouter = require('./supply');
+const indexRouter = require('./routes/index');
+const totalSupplyRouter = require('./routes/supply');
 
 const app = express();
 
@@ -17,7 +18,8 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(cors())
-app.use('/', totalSupplyRouter);
+app.use('/', indexRouter);
+app.use('/totalsupply', totalSupplyRouter);
 
 
 // Configurar cabeceras y cors
