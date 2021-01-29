@@ -24,11 +24,18 @@ router.post('/totalsupply', function(req, res, next) {
 router.post('/circulatingsupply', function(req, res, next) {
     try {
         const PAIDToken =  ContractFactory();
-
+        // Total Supply
         let totalSupply = await PAIDToken.methods
             .totalSupply()
-            .call()
-        return res.send(totalSupply.toFixed(8)) // Formatear con decimales
+            .call();
+        // 
+        let ecosystem = await PAIDToken.balanceOf(process.env.ECOSYSTEM);
+        let research = await PAIDToken.balanceOf(process.env.RESEARCH);
+        let general = await PAIDToken.balanceOf(process.env.GENERAL_RESERVE);
+        let stake = await PAIDToken.balanceOf(process.env.STAKE_REWARDS);
+        const circulatingSupply = totalSupply - (ecosystem + research + general + stake);
+        console.log(circulatingSupply);
+        return res.send(circulatingSupply.toFixed(8)) // Formatear con decimales
     } catch (e) {
         console.error(e)
         return res.status(400).send('')
