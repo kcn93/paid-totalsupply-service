@@ -29,14 +29,13 @@ router.get('/circulatingsupply', async function(req, res, next) {
         const total = await PAIDToken.totalSupply();
         const totalSupply = JSON.parse(total) / 1e18;
         // Some Variables
-        console.log(`${process.env.ECOSYSTEM}`, `${process.env.RESEARCH}`);
         // let ecosystem = await PAIDToken.balanceOf(process.env.ECOSYSTEM);
         // let research = await PAIDToken.balanceOf(process.env.RESEARCH);
         // let general = await PAIDToken.balanceOf(process.env.GENERAL_RESERVE);
         // let stake = await PAIDToken.balanceOf(process.env.STAKE_REWARDS);
         // const circulating = totalSupply - (ecosystem + research + general + stake);
-        // console.log(circulating);
-        // return res.status(200).json(circulating) // Formatear con decimales
+        console.log(totalSupply);
+        return res.status(200).json(totalSupply) // Formatear con decimales
     } catch (e) {
         console.error(e)
         return res.status(404).send('')
