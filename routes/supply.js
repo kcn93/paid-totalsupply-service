@@ -1,44 +1,45 @@
-import { ContractFactory } from '../utils/ContractFactory';
-
+const express = require('express');
+const router = express.Router();
+const ContractFactory = require('../utils/ContractFactory');
 /**
  * Responds to any HTTP request.
  *
  * @param {!express:Request} req HTTP request context.
  * @param {!express:Response} res HTTP response context.
  */
-router.post('/totalsupply', function(req, res, next) {
+router.get('/', async function(req, res, next) {
     try {
 
-        const PAIDToken =  ContractFactory();
+        const PAIDToken =  ContractFactory(req, res);
 
-        let totalSupply = await PAIDToken.methods
-            .totalSupply()
-            .call()
-        return res.send(totalSupply.toFixed(8)) // Formatear con decimales
+        const total = await PAIDToken.totalSupply();
+        const totalSupply = JSON.parse(total) / 1e18;
+        console.log(totalSupply);
+        return res.status(200).json(totalSupply) // Formatear con decimales
     } catch (e) {
         console.error(e)
-        return res.status(400).send('')
+        return res.status(404).send('')
     }
 });
 
-router.post('/circulatingsupply', function(req, res, next) {
+router.get('/circulatingsupply', async function(req, res, next) {
     try {
-        const PAIDToken =  ContractFactory();
+        const PAIDToken =  ContractFactory(req, res);
         // Total Supply
-        let totalSupply = await PAIDToken.methods
-            .totalSupply()
-            .call();
-        // 
-        let ecosystem = await PAIDToken.balanceOf(process.env.ECOSYSTEM);
-        let research = await PAIDToken.balanceOf(process.env.RESEARCH);
-        let general = await PAIDToken.balanceOf(process.env.GENERAL_RESERVE);
-        let stake = await PAIDToken.balanceOf(process.env.STAKE_REWARDS);
-        const circulatingSupply = totalSupply - (ecosystem + research + general + stake);
-        console.log(circulatingSupply);
-        return res.send(circulatingSupply.toFixed(8)) // Formatear con decimales
+        const total = await PAIDToken.totalSupply();
+        const totalSupply = JSON.parse(total) / 1e18;
+        // Some Variables
+        console.log(`${process.env.ECOSYSTEM}`, `${process.env.RESEARCH}`);
+        // let ecosystem = await PAIDToken.balanceOf(process.env.ECOSYSTEM);
+        // let research = await PAIDToken.balanceOf(process.env.RESEARCH);
+        // let general = await PAIDToken.balanceOf(process.env.GENERAL_RESERVE);
+        // let stake = await PAIDToken.balanceOf(process.env.STAKE_REWARDS);
+        // const circulating = totalSupply - (ecosystem + research + general + stake);
+        // console.log(circulating);
+        // return res.status(200).json(circulating) // Formatear con decimales
     } catch (e) {
         console.error(e)
-        return res.status(400).send('')
+        return res.status(404).send('')
     }
 });
 

@@ -1,14 +1,13 @@
-import { ethers } from 'ethers';
-import { PAIDTokenContract } from './../contracts/paidtoken';
-
-export const ContractFactory = () => {
+const ContractFactory = (res, req) => {
+    const ethers = require('ethers');
+    const TokenContract = require('./../contracts/paidtoken.js');
     try {
         // This can be an address or an ENS name
-        const address = PAIDTokenContract.address;
+        const address = TokenContract.PAIDTokenContract.address["mainnet"];
+        // An Instance of Abi Files
+        const abi = TokenContract.PAIDTokenContract.raw.abi;
         // An Instance of Provider
         const provider = ethers.getDefaultProvider();
-        // An Instance of Signer
-        const signer = ethers.Wallet.createRandom().connect(provider);
         // Read-Only; By connecting to a Provider, allows:
         // - Any constant function
         // - Querying Filters
@@ -17,8 +16,10 @@ export const ContractFactory = () => {
         // - Static Calling non-constant methods (as anonymous sender)
         const erc20 = new ethers.Contract(address, abi, provider);
         return erc20;
-    } catch {
-        console.error(e)
-        return res.status(400).send('Error Create Instance of Contract Token')
+    } catch (err) {
+        console.error(err);
+        return res.status(400).send('Error Create Instance of Contract Token');
     }
 };
+
+module.exports = ContractFactory;

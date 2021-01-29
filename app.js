@@ -2,6 +2,7 @@ const createError = require('http-errors');
 const express = require('express');
 const cors = require('cors')
 const path = require('path');
+const logger = require('morgan');
 
 // Routes
 const indexRouter = require('./routes/index');
@@ -13,14 +14,20 @@ const app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
+app.use(logger('dev'));
 app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({extended: false}));
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use(cors())
+var corsOptions = {
+    methods: ['GET', 'POST', 'OPTIONS', 'HEAD'],
+    allowedHeaders: ['Content-Type', 'Authorization', 'Origin'],
+    optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
+}
+
+app.use(cors(corsOptions));
 app.use('/', indexRouter);
 app.use('/supply', totalSupplyRouter);
-
 
 // Configurar cabeceras y cors
 // app.use((req, res, next) => {
