@@ -5,8 +5,8 @@
 - [Motivation](#motivation)
 - [Specification](#specification)
 - [Proposed Solution](#proposed-solution)
-  - [Bases of the calculation of Circulating of PAID Token](#Bases of the calculation of Circulating of PAID Token)
-  - [Explanation of the calculation of the PAID Token in circulation](#Explanation of the calculation of the PAID Token in circulation)
+  - [Bases of the calculation of Circulating of PAID Token](##Bases-of-the-calculation-of-Circulating-of-PAID-Token)
+  - [Explanation of the calculation of the PAID Token in circulation](#Explanation-of-the-calculation-of-the-PAID-Token-in-circulation)
 
 This specification is based on:
 
@@ -26,13 +26,13 @@ The main motivations of this API
 
 ## Proposed Solution
 
-### Bases of the calculation of Circulating of PAID Token:
+### Bases of the calculation of Circulating of PAID Token
 
 * The Total Supply of the Official PAID Token Smart Contract is taken as a basis
 * The Audit carried out by the company CertiK, on the Smart Contract of the PAID Token and the Complete Token issuance process, together with all the transfers committed in the different Allocation established for said issuance process, is taken as the basis for calculating Circulating.
 * It is taken as the basis for the Token Metrics Document, which establishes the distribution of the PAID Token, according to an allocation, and pre-established distribution that has been fulfilled and will be fully fulfilled for the next 360 days, from January 25, 2021
 
-### Explanation of the calculation of the PAID Token in circulation:
+### Explanation of the calculation of the PAID Token in circulation
 
 * The calculation of the circulating supply of the PAID Token is based on the assumption that all Token that are not strictly under the control of the PAID Network Foundation, therefore the balances of the following wallets corresponding to the discrete allocation here are considered excluded from the circulating :
 - Ecosystem and Referrals allocation was issued 148,679,363.9275 PAID tokens with a vesting period of first unlock at day 30, 1.66% every month for 60 months. The address of this allocation is the following: 0x88081F72b59FdD998c1443CC3721DdE1cc451003. This address is held by the PAID Network Foundation.
