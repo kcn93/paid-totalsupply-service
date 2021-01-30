@@ -42,5 +42,5 @@ Therefore, the balances of the following wallets corresponding to the allocation
 - **Staking Rewards** allocation was issued 59,471,745.571 PAID tokens with no vesting period as these tokens will be rewarded through PAID and Iginiton platforms gradually. The address of this allocation is the following: [0xD500AA2CffB70F460F4Da6aFA038CE35bed029BC](https://etherscan.io/address/0xD500AA2CffB70F460F4Da6aFA038CE35bed029BC). This address is held by the PAID Network Foundation.
 - There were **Advisors and Contractors** that were eligible for advisor tokens, but due to the milestone-based nature of the contract between the PAID Network Foundation and the contractors, these tokens were issued separately to an Extra Reserve for Advisors allocation with 100% unlock at the listing date. This allocation was issued a total of 11,089,470.2958095 PAID tokens. The minting transaction of this allocation can be seen [0x320e7CCC4f3430697e9Cf82E4F1b6461ed58d793](https://etherscan.io/address/0x320e7ccc4f3430697e9cf82e4f1b6461ed58d793) .These tokens are held by PAID Network Foundation and will be gradually released as milestones are achieved.
 
-`circulating = totalSupply - (ecosystem + research + general + stake + contractors)`
+`CirculatingSupply = totalSupply - (ecosystem + research + general + stake + contractors)`
 
