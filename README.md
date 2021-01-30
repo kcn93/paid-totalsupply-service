@@ -5,8 +5,8 @@
 - [Motivation](#motivation)
 - [Specification](#specification)
 - [Proposed Solution](#proposed-solution)
-  - [Bases of the calculation of Circulating of PAID Token](Bases of the calculation of Circulating of PAID Token)
-  - [Explanation of the calculation of the PAID Token in circulation](Explanation of the calculation of the PAID Token in circulation)
+  - [Bases of the calculation of Circulating of PAID Token](#Bases of the calculation of Circulating of PAID Token)
+  - [Explanation of the calculation of the PAID Token in circulation](#Explanation of the calculation of the PAID Token in circulation)
 
 This specification is based on:
 
