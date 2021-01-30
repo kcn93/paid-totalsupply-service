@@ -1,4 +1,4 @@
-# Total Supply PAID Token API
+# API Total Supply PAID Token
 
 **Table of Contents**
 
@@ -34,7 +34,7 @@ The main motivations of this API
 
 ### Explanation of the calculation of the PAID Token in circulation
 
-* The calculation of the circulating supply of the PAID Token is based on the assumption that all Token that are not strictly under the control of the PAID Network Foundation, therefore the balances of the following wallets corresponding to the discrete allocation here are considered excluded from the circulating :
+#### The calculation of the circulating supply of the PAID Token is based on the assumption that all Token that are not strictly under the control of the PAID Network Foundation, therefore the balances of the following wallets corresponding to the discrete allocation here are considered excluded from the circulating :
 - Ecosystem and Referrals allocation was issued 148,679,363.9275 PAID tokens with a vesting period of first unlock at day 30, 1.66% every month for 60 months. The address of this allocation is the following: 0x88081F72b59FdD998c1443CC3721DdE1cc451003. This address is held by the PAID Network Foundation.
 - Research Foundation allocation was issued 118,943,491.142 PAID tokens with a vesting period of first unlock at day 180, 1.66% every month for 60 months. The address of this allocation is the following: 0xf0Ef677d63B587F6d49dB3c0275c4E4Db6dc0b2D. This address is held by the PAID Network Foundation.
 - General Reserve allocation was issued 46,611,482.1985271 PAID tokens with a vesting period of first unlock at day 180, 1.66% every month for 60 months. The address of this allocation is the following: 0x9C5Be5e3491106E64dF0Ba5EbC1c1e195a07Ab7c. This address is held by the PAID Network Foundation.
