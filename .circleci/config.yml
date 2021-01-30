@@ -124,7 +124,6 @@ workflows:
             - docker-hub-creds
       - publish:
           requires:
-            - build
             - test
           filters:
             branches:
