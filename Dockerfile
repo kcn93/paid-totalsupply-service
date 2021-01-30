@@ -11,7 +11,7 @@ RUN npm install
 
 
 # Use the build stage to run unit tests
-FROM build as unit-test
+FROM base as unit-test
 # Copy tests directory
 #COPY tests .
 # Execute npm to actually run test:unit script
