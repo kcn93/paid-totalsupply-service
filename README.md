@@ -22,7 +22,8 @@ The main motivations of this API
 ## Specification
 
 * Total supply, Basic function of the ERC20 Standard
-* Circulating Supply, based in [CertiK Audit Of PAID Network & Transparency Report](https://paidnetwork.medium.com/certik-audit-of-paid-network-transparency-report-6d1935c81f2d)
+* Circulating Supply, based in [CertiK Audit Of PAID Network & Transparency Report](https://paidnetwork.medium.com/certik-audit-of-paid-network-transparency-report-6d1935c81f2d).
+* Allocation Distribution, based in [Token Metrics](https://docsend.com/view/imqcakbb3t8isgp6)
 
 ## Proposed Solution
 
