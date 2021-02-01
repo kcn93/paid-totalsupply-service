@@ -27,6 +27,7 @@ COPY public public
 COPY routes routes
 COPY utils utils
 COPY views views
+COPY contracts contracts
 COPY *.js *.json ./
 # Define the network port that this container will listen on at runtime.
 EXPOSE 3000
