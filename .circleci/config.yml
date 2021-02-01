@@ -118,7 +118,7 @@ workflows:
             branches:
               only:
                 - master
-                - develop
+                #- develop
           context:
             - cea-sonarcloud
             - docker-hub-creds
