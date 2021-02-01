@@ -23,7 +23,7 @@ router.get('/totalsupply', async function(req, res, next) {
       // Transform Total Supply
       const totalSupply = Intl.NumberFormat("en-US").format(JSON.parse(total) / 1e18);
       console.log(totalSupply);
-      return res.status(200).json(totalSupply) // Formatear con decimales
+      return res.status(200).type('text/html').send(totalSupply) // Formatear con decimales
   } catch (e) {
       console.error(e)
       return res.status(404).send('')
@@ -55,7 +55,7 @@ router.get('/circulatingsupply', async function(req, res, next) {
       // Adapt American Numeric Format
       const circulatingSupply = Intl.NumberFormat("en-US").format(circulating);
       console.log(circulatingSupply);
-      return res.status(200).json(circulatingSupply) // Formatear con decimales
+      return res.status(200).type('text/html').send(circulatingSupply) // Formatear con decimales
   } catch (e) {
       console.error(e)
       return res.status(404).send('')
