@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: paid-totalsupply-service
+  labels:
+    app: totalsupply-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: totalsupply-service
+  strategy:
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        app: totalsupply-service
+    spec:
+      containers:
+        - image: gcr.io/vivid-plateau-278712/paid-totalsupply-service:develop-latest
+          name: totalsupply-service
+          ports:
+            - containerPort: 3000

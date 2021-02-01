@@ -1,0 +1,12 @@
+# These owners will be the default owners for everything in the repo. 
+# Unless a later match takes precedence, @luissanchez0305 will be requested for
+# review when someone opens a pull request.
+* @alfredolopez80 
+
+# When someone opens a pull request that only
+# modifies JS files, JSON files and any source code directories and its subdirectories 
+# only @alfredolopez80 and not the global owner(s) will be requested for a review.
+/bin /public/ /routes/ /utils/ /views/ *.js *.json  @alfredolopez80
+
+# @urbinaalex17 owns any files related to CI/CD, Docker and Kubernetes
+/k8s/ /.circleci/ /.devops/ Dockerfile .dockerignore sonar-project.properties @urbinaalex17
