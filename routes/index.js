@@ -21,9 +21,10 @@ router.get('/totalsupply', async function(req, res, next) {
       // Get Total Supply
       const total = await PAIDToken.totalSupply();
       // Transform Total Supply
-      const totalSupply = Intl.NumberFormat("en-US").format(JSON.parse(total) / 1e18);
+      // const totalSupply = Intl.NumberFormat("en-US").format(JSON.parse(total) / 1e18);
+      const totalSupply = JSON.parse(total) / 1e18;
       console.log(totalSupply);
-      return res.status(200).type('text/html').send(totalSupply) // Formatear con decimales
+      return res.status(200).type('text/html').send(totalSupply.toString()) // Formatear con decimales
   } catch (e) {
       console.error(e)
       return res.status(404).send('')
@@ -51,17 +52,15 @@ router.get('/circulatingsupply', async function(req, res, next) {
       const stake = JSON.parse(stake_balance) / 1e18;
       const contractors = JSON.parse(contractors_balance) / 1e18;
       // Calculate Circulating
-      const circulating = totalSupply - (ecosystem + research + general + stake + contractors);
+      const circulatingSupply = totalSupply - (ecosystem + research + general + stake + contractors);
       // Adapt American Numeric Format
-      const circulatingSupply = Intl.NumberFormat("en-US").format(circulating);
+      // const circulatingSupply = Intl.NumberFormat("en-US").format(circulating);
       console.log(circulatingSupply);
-      return res.status(200).type('text/html').send(circulatingSupply) // Formatear con decimales
+      return res.status(200).type('text/html').send(circulatingSupply.toString()) // Formatear con decimales
   } catch (e) {
       console.error(e)
       return res.status(404).send('')
   }
 });
-
-module.exports = router;
 
 module.exports = router;
