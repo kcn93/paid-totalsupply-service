@@ -106,7 +106,7 @@ workflows:
           filters:
             branches:
               only:
-                - master
+                - main
                 - develop
           context:
             - cea-gcp
@@ -117,7 +117,7 @@ workflows:
           filters:
             branches:
               only:
-                - master
+                - main
                 #- develop
           context:
             - cea-sonarcloud
@@ -128,7 +128,7 @@ workflows:
           filters:
             branches:
               only:
-                - master
+                - main
                 - develop
                 - /^feature.*/
                 - /^release.*/
@@ -140,7 +140,7 @@ workflows:
           filters:
             branches:
               only:
-                - master
+                - main
                 - develop
                 - /^feature.*/
                 - /^release.*/
@@ -152,7 +152,7 @@ workflows:
           filters:
             branches:
               only:
-                - master
+                - main
                 - develop
                 - /^feature.*/
                 - /^release.*/
@@ -176,7 +176,7 @@ workflows:
           filters:
             branches:
               only:
-                - master
+                - main
           context: 
             - cea-gcp
             - cea-gcp-prod
