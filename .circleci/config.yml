@@ -106,29 +106,30 @@ workflows:
           filters:
             branches:
               only:
-                - master
+                - main
                 - develop
           context:
             - cea-gcp
             - docker-hub-creds
-      - code-scan:
-          requires: 
-            - test
-          filters:
-            branches:
-              only:
-                - master
-                - develop
-          context:
-            - cea-sonarcloud
-            - docker-hub-creds
+      #TODO Enable job later
+      #- code-scan:
+      #    requires: 
+      #      - test
+      #    filters:
+      #      branches:
+      #        only:
+      #          - main
+      #          #- develop
+      #    context:
+      #      - cea-sonarcloud
+      #      - docker-hub-creds
       - publish:
           requires:
             - test
           filters:
             branches:
               only:
-                - master
+                - main
                 - develop
                 - /^feature.*/
                 - /^release.*/
@@ -140,7 +141,7 @@ workflows:
           filters:
             branches:
               only:
-                - master
+                - main
                 - develop
                 - /^feature.*/
                 - /^release.*/
@@ -152,7 +153,7 @@ workflows:
           filters:
             branches:
               only:
-                - master
+                - main
                 - develop
                 - /^feature.*/
                 - /^release.*/
@@ -176,7 +177,7 @@ workflows:
           filters:
             branches:
               only:
-                - master
+                - main
           context: 
             - cea-gcp
             - cea-gcp-prod

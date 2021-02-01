@@ -8,7 +8,7 @@ const Pools = require('../utils/Pools');
  * @param {!express:Request} req HTTP request context.
  * @param {!express:Response} res HTTP response context.
  */
-router.get('/', async function(req, res, next) {
+router.get('/totalsupply', async function(req, res, next) {
     try {
         // Get ERC Instance
         const PAIDToken =  ContractFactory(req, res);
@@ -26,31 +26,23 @@ router.get('/', async function(req, res, next) {
 
 router.get('/circulatingsupply', async function(req, res, next) {
     try {
-        // Get ERC Instance
+        // Get ERC20 Instance
         const PAIDToken =  ContractFactory(req, res);
         // Get Total Supply
         const total = await PAIDToken.totalSupply();
         // Convert totalsupply
         const totalSupply  = JSON.parse(total) / 1e18
-        // Get EcoSystem and Referrals
+        // Get EcoSystem and Referrals, Research, General Balance, Stake Rewards, Contractors
         const ecosystem_balance = await PAIDToken.balanceOf(Pools().ecosystem);
-        // Get Research
         const research_balance = await PAIDToken.balanceOf(Pools().research);
-        // Get General Balance
         const general_balance = await PAIDToken.balanceOf(Pools().general_reserve);
-        // Get Stake Rewards
         const stake_balance = await PAIDToken.balanceOf(Pools().stake_rewards);
-        // Get Contractors
         const contractors_balance = await PAIDToken.balanceOf(Pools().contractors);
-        // Adapt Value
+        // Convert Value wei to decimal
         const ecosystem = JSON.parse(ecosystem_balance) / 1e18;
-        // Adapt Value
         const research = JSON.parse(research_balance) / 1e18;
-        // Adapt Value
         const general = JSON.parse(general_balance) / 1e18;
-        // Adapt Value
         const stake = JSON.parse(stake_balance) / 1e18;
-        // Adapt Value
         const contractors = JSON.parse(contractors_balance) / 1e18;
         // Calculate Circulating
         const circulating = totalSupply - (ecosystem + research + general + stake + contractors);
