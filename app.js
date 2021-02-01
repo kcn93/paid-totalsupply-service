@@ -6,7 +6,7 @@ const logger = require('morgan');
 
 // Routes
 const indexRouter = require('./routes/index');
-const totalSupplyRouter = require('./routes/supply');
+// const totalSupplyRouter = require('./routes/supply');
 
 const app = express();
 
@@ -20,23 +20,14 @@ app.use(express.urlencoded({extended: false}));
 app.use(express.static(path.join(__dirname, 'public')));
 
 var corsOptions = {
-    methods: ['GET', 'POST', 'OPTIONS', 'HEAD'],
+    methods: ['GET', 'OPTIONS', 'HEAD'],
     allowedHeaders: ['Content-Type', 'Authorization', 'Origin'],
     optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
 }
 
 app.use(cors(corsOptions));
 app.use('/', indexRouter);
-app.use('/supply', totalSupplyRouter);
-
-// Configurar cabeceras y cors
-// app.use((req, res, next) => {
-// 	res.header('Access-Control-Allow-Origin', '*');
-// 	res.header('Access-Control-Allow-Headers', 'Authorization, X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Allow-Request-Method');
-// 	res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, DELETE');
-// 	res.header('Allow', 'GET, POST, OPTIONS, PUT, DELETE');
-// 	next();
-// });
+// app.use('/supply', totalSupplyRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
