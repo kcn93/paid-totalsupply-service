@@ -19,9 +19,9 @@ app.use(express.json());
 app.use(express.urlencoded({extended: false}));
 app.use(express.static(path.join(__dirname, 'public')));
 
-var corsOptions = {,
+var corsOptions = {
     origin: "*",
-    methods: ['GET', 'POST', 'OPTIONS', 'HEAD'],
+    methods: ['GET', 'OPTIONS', 'HEAD'],
     allowedHeaders: ['Content-Type', 'Authorization', 'Origin'],
     optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
 }
