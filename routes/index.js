@@ -24,7 +24,7 @@ router.get('/totalsupply', async function(req, res, next) {
       // const totalSupply = Intl.NumberFormat("en-US").format(JSON.parse(total) / 1e18);
       const totalSupply = JSON.parse(total) / 1e18;
       console.log(totalSupply);
-      return res.status(200).type('text/html').send(totalSupply.toString()) // Formatear con decimales
+      return res.status(200).type('text/plain').send(totalSupply.toString()) // Formatear con decimales
   } catch (e) {
       console.error(e)
       return res.status(404).send('')
@@ -56,7 +56,7 @@ router.get('/circulatingsupply', async function(req, res, next) {
       // Adapt American Numeric Format
       // const circulatingSupply = Intl.NumberFormat("en-US").format(circulating);
       console.log(circulatingSupply);
-      return res.status(200).type('text/html').send(circulatingSupply.toString()) // Formatear con decimales
+      return res.status(200).type('text/plain').send(circulatingSupply.toString()) // Formatear con decimales
   } catch (e) {
       console.error(e)
       return res.status(404).send('')
