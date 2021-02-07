@@ -1,4 +1,5 @@
-package-lock.json
-contracts/paidtoken.js
 node_modules/
+# Files
+contracts/paidtoken.js
+package-lock.json
 .env
