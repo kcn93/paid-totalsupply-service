@@ -1,5 +1,6 @@
 const ContractFactory = (res, req) => {
     const ethers = require('ethers');
+    const network = "homestead";
     const TokenContract = require('../contracts/paidtoken.js');
     // const urlInfo = {
     //     url: `${process.env.APP_HTTP_URL}`,
@@ -14,7 +15,9 @@ const ContractFactory = (res, req) => {
         // An Instance of Abi Files
         const abi = TokenContract.PAIDTokenContract.raw.abi;
         // An Instance of Provider
-        const provider = ethers.getDefaultProvider();
+        const provider = ethers.getDefaultProvider(network, {
+            etherscan: 'VM2F7V2Y26P3MQ4D8EW8XYGSXNWXIY1IDV',
+        });
         // const provider = new ethers.providers.WebSocketProvider(wss_url);
         // Read-Only; By connecting to a Provider, allows:
         // - Any constant function
