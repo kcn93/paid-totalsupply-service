@@ -39,19 +39,14 @@ const rest = async (arr, PAIDToken) => {
 }
 
 const restAmount = async (PAIDToken) => {
-    // This can be an address or an ENS name
+    // Get token Locked for Allocation
+    const stake = await balance(PAID.PAIDTokenContract.stake_rewards, PAIDToken);
     const foundation = await balance(PAID.PAIDTokenContract.foundation, PAIDToken);
     const team = await rest(PAID.PAIDTokenContract.team_holders, PAIDToken);
     const advisors = await rest(PAID.PAIDTokenContract.advisors_holders, PAIDToken);
-    // // Get EcoSystem and Referrals, Research, General Balance, Stake Rewards, Contractors
-    // const ecosystem_balance = await PAIDToken.balanceOf(ecosystem_addr);
-    // const research_balance = await PAIDToken.balanceOf(research_addr);
-    // const general_balance = await PAIDToken.balanceOf(general_reserve_addr);
-    // const stake_balance = await PAIDToken.balanceOf(stake_rewards_addr);
-    // const contractors_balance = await PAIDToken.balanceOf(contractors_addr);
-    // Total Token Under Control of PAID Network Foundation
-    // const foundation = (weiToDecimal(ecosystem_balance) + weiToDecimal(research_balance) + weiToDecimal(general_balance) + weiToDecimal(stake_balance) + weiToDecimal(contractors_balance));
-    const restAmount = foundation + team + advisors;
+    const seed_a = await rest(PAID.PAIDTokenContract.seed_a, PAIDToken);
+   
+    const restAmount = stake + foundation + team + advisors + seed_a;
     // Check Value
     console.log(restAmount);
     return restAmount;
