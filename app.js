@@ -3,6 +3,8 @@ const express = require('express');
 const cors = require('cors')
 const path = require('path');
 const logger = require('morgan');
+// Load dotenv
+require('dotenv').config();
 
 // Routes
 const indexRouter = require('./routes/index');

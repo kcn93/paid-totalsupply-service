@@ -1,6 +1,13 @@
 const ContractFactory = (res, req) => {
     const ethers = require('ethers');
-    const TokenContract = require('./../contracts/paidtoken.js');
+    const TokenContract = require('../contracts/paidtoken.js');
+    // const urlInfo = {
+    //     url: `${process.env.APP_HTTP_URL}`,
+    //     user: `${process.env.APP_HTTP_USER}`,
+    //     password: `${process.env.APP_HTTP_PASS}`
+    // };
+    const wss_url = process.env.APP_WSS_URL;
+    // console.log(wss_url);
     try {
         // This can be an address or an ENS name
         const address = TokenContract.PAIDTokenContract.address["mainnet"];
@@ -8,6 +15,7 @@ const ContractFactory = (res, req) => {
         const abi = TokenContract.PAIDTokenContract.raw.abi;
         // An Instance of Provider
         const provider = ethers.getDefaultProvider();
+        // const provider = new ethers.providers.WebSocketProvider(wss_url);
         // Read-Only; By connecting to a Provider, allows:
         // - Any constant function
         // - Querying Filters
