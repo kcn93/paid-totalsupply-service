@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: paid-totalsupply-service-supplies
+data:
+  total-supply: "594717455.71"
+  rest-amount: "574833455.71"
