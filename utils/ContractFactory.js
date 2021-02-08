@@ -1,6 +1,7 @@
 const ContractFactory = (req, res) => {
     const ethers = require('ethers');
-    const network = process.env.APP_NETWORK;
+    // const network = process.env.APP_NETWORK;
+    const network = "homestead";
     const TokenContract = require('../contracts/paidtoken.js');
     // const urlInfo = {
     //     url: `${process.env.APP_HTTP_URL}`,

@@ -5,11 +5,13 @@ const restAmount = require('../utils/restAmount');
 const totalSupply = require('../utils/totalSupply');
 // Caching
 const NodeCache = require( "node-cache" );
-const myCache = new NodeCache( { stdTTL: 300, checkperiod: 350 } );
+const myCache = new NodeCache( { stdTTL: 1800, checkperiod: 1900 } );
 // Global Variable
 let PAIDToken = null;
-let oldTotalSupply = process.env.APP_TOTAL_SUPPLY;
-let oldRestAmount = process.env.APP_REST_AMOUNT;
+// let oldTotalSupply = process.env.APP_TOTAL_SUPPLY;
+// let oldRestAmount = process.env.APP_REST_AMOUNT;
+let oldTotalSupply = 594717455.71;
+let oldRestAmount = 574833455.71;
 let updatingTotal = false;
 let updatingRest = false;
 
@@ -29,7 +31,7 @@ const updateTotalSupply = async (PAIDToken) => {
     // Get Total Supply
     const Total = await totalSupply(PAIDToken);
     // assign to Cache
-    const successTS = myCache.set("TotalSupply",Total, 300);
+    const successTS = myCache.set("TotalSupply",Total, 1800);
     console.log('Total Supply TS', Total);
     if (successTS) {
       oldTotalSupply = Total;
@@ -52,12 +54,12 @@ const updateCirculatingSupply = async (PAIDToken) => {
     // Get Total Supply
     const Total = await totalSupply(PAIDToken);
     // assign to Cache
-    const success_t = myCache.set("TotalSupply",Total, 300);
+    const success_t = myCache.set("TotalSupply",Total, 1800);
     console.log('Total Supply CS', Total);
     // Get Rest Amount Token
     const Rest = await restAmount(PAIDToken);
     // assign to Cache
-    const success_r = myCache.set("RestAmount",Rest, 300);
+    const success_r = myCache.set("RestAmount",Rest, 1800);
     if (success_t && success_r) {
       oldTotalSupply = Total;
       oldRestAmount = Rest;
