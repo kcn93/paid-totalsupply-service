@@ -8,10 +8,10 @@ const NodeCache = require( "node-cache" );
 const myCache = new NodeCache( { stdTTL: 1800, checkperiod: 1900 } );
 // Global Variable
 let PAIDToken = null;
-// let oldTotalSupply = process.env.APP_TOTAL_SUPPLY;
-// let oldRestAmount = process.env.APP_REST_AMOUNT;
-let oldTotalSupply = 594717455.71;
-let oldRestAmount = 574833455.71;
+let oldTotalSupply = process.env.APP_TOTAL_SUPPLY;
+let oldRestAmount = process.env.APP_REST_AMOUNT;
+//let oldTotalSupply = 594717455.71;
+//let oldRestAmount = 574833455.71;
 let updatingTotal = false;
 let updatingRest = false;
 

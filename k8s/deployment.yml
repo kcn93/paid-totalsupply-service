@@ -19,5 +19,16 @@ spec:
       containers:
         - image: gcr.io/vivid-plateau-278712/paid-totalsupply-service:develop-latest
           name: totalsupply-service
+          env: 
+            - name: APP_TOTAL_SUPPLY
+              valueFrom: 
+                configMapKeyRef:
+                  name: paid-totalsupply-service-supplies
+                  key: total-supply
+            - name: APP_REST_AMOUNT
+              valueFrom: 
+                configMapKeyRef:
+                  name: paid-totalsupply-service-supplies
+                  key: rest-amount
           ports:
             - containerPort: 3000
