@@ -5,7 +5,8 @@ const path = require('path');
 const logger = require('morgan');
 // Load dotenv
 require('dotenv').config();
-
+// Handle Events
+require('events').EventEmitter.defaultMaxListeners = 5;
 // Routes
 const indexRouter = require('./routes/index');
 // const totalSupplyRouter = require('./routes/supply');

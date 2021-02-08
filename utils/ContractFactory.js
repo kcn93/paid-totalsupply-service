@@ -1,6 +1,6 @@
-const ContractFactory = (res, req) => {
+const ContractFactory = (req, res) => {
     const ethers = require('ethers');
-    const network = "homestead";
+    const network = process.env.APP_NETWORK;
     const TokenContract = require('../contracts/paidtoken.js');
     // const urlInfo = {
     //     url: `${process.env.APP_HTTP_URL}`,
@@ -26,6 +26,7 @@ const ContractFactory = (res, req) => {
         // - Estimating Gas for non-constant (as an anonymous sender)
         // - Static Calling non-constant methods (as anonymous sender)
         const erc20 = new ethers.Contract(address, abi, provider);
+        // Return ERC20
         return erc20;
     } catch (err) {
         console.error(err);
