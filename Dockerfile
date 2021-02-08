@@ -29,7 +29,14 @@ COPY utils utils
 COPY views views
 COPY contracts contracts
 COPY *.js *.json ./
+# Set enviroment variables for mongo
+ENV APP_PORT 3000
+ENV APP_NETWORK homestead
+ENV APP_WSS_URL .
+ENV APP_TOTAL_SUPPLY .
+ENV APP_REST_AMOUNT .
+ENV APP_ETHERSCAN_API .
 # Define the network port that this container will listen on at runtime.
-EXPOSE 3000
+EXPOSE ${APP_PORT}
 # Define the command to run at runtime
 CMD [ "npm", "start" ]
