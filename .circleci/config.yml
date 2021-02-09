@@ -111,18 +111,17 @@ workflows:
           context:
             - cea-gcp
             - docker-hub-creds
-      #TODO Enable job later
-      #- code-scan:
-      #    requires: 
-      #      - test
-      #    filters:
-      #      branches:
-      #        only:
-      #          - main
-      #          #- develop
-      #    context:
-      #      - cea-sonarcloud
-      #      - docker-hub-creds
+      - code-scan:
+          requires: 
+            - test
+          filters:
+            branches:
+              only:
+                - main
+                - develop
+          context:
+            - cea-sonarcloud
+            - docker-hub-creds
       - publish:
           requires:
             - test
