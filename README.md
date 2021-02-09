@@ -5,8 +5,9 @@
 - [Motivation](#motivation)
 - [Specification](#specification)
 - [Proposed Solution](#proposed-solution)
-  - [Bases of the calculation of Circulating of PAID Token](##Bases-of-the-calculation-of-Circulating-of-PAID-Token)
+  - [Bases of the calculation of Circulating of PAID Token](#Bases-of-the-calculation-of-Circulating-of-PAID-Token)
   - [Explanation of the calculation of the PAID Token in Circulation](#Explanation-of-the-calculation-of-the-PAID-Token-in-circulation)
+- [Docker and Makefile](#Docker-and-Makefile)
 
 This specification is based on:
 
@@ -57,3 +58,24 @@ The main motivations of this API
 
 **The calculation method is under review**
 
+## Docker and Makefile
+
+Copy .env.example to .env and replace to the proper values
+```bash
+cp .env.example .env
+```
+
+Build a new docker image and start a new container afterwards.
+```bash
+make up
+```
+
+Remove a previous container 
+```bash
+make down
+```
+
+Get container logs
+```bash
+make logs
+```
