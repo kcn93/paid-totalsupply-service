@@ -6,7 +6,7 @@
   "scripts": {
     "deploy": "gcloud functions deploy token-v3-total-supply --env-vars-file .env --entry-point v3totalSupply --runtime nodejs8 --trigger-http",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node ./bin/www"
+    "start": "nodemon ./bin/www"
   },
   "author": "",
   "license": "ISC",

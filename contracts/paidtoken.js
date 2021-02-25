@@ -1131,5 +1131,8 @@ module.exports = {
       "0x0ed67daaacf97acf041cc65f04a632a8811347ff",
       "0x24f6e9860b05b21bcfb9d4f56d09aa6aefb589e3",
     ],
+    exchange: [
+      "0x75e5852385fa856791d703e3f04da24f5bc13975"
+    ]
   },
 };
