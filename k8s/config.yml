@@ -1,7 +1,10 @@
+---
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: paid-totalsupply-service-supplies
+  name: paid-totalsupply-service
 data:
   total-supply: "594717455.71"
   rest-amount: "574833455.71"
+  network: homestead
+  etherscan-api: VM2F7V2Y26P3MQ4D8EW8XYGSXNWXIY1IDV

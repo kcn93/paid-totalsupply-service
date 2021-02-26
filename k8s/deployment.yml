@@ -19,16 +19,31 @@ spec:
       containers:
         - image: gcr.io/vivid-plateau-278712/paid-totalsupply-service:develop-latest
           name: totalsupply-service
-          env: 
+          env:
             - name: APP_TOTAL_SUPPLY
-              valueFrom: 
+              valueFrom:
                 configMapKeyRef:
-                  name: paid-totalsupply-service-supplies
+                  name: paid-totalsupply-service
                   key: total-supply
             - name: APP_REST_AMOUNT
-              valueFrom: 
+              valueFrom:
                 configMapKeyRef:
-                  name: paid-totalsupply-service-supplies
+                  name: paid-totalsupply-service
                   key: rest-amount
+            - name: APP_NETWORK
+              valueFrom:
+                configMapKeyRef:
+                  name: paid-totalsupply-service
+                  key: network
+            - name: APP_WSS_URL
+              valueFrom:
+                secretKeyRef:
+                  name: paid-totalsupply-service
+                  key: wss_url
+            - name: APP_ETHERSCAN_API
+              valueFrom:
+                configMapKeyRef:
+                  name: paid-totalsupply-service
+                  key: etherscan-api
           ports:
             - containerPort: 3000
